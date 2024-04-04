@@ -8,6 +8,7 @@ function InputBox(props){
     };
 
     const handleButtonClick = () => {
+        if(inputText.trim() !== ''){
         props.setTodos(prevTodos => [
             ...prevTodos,
             {
@@ -15,12 +16,16 @@ function InputBox(props){
                 id: Date.now(),
                 done: false,
             }
-        ]);
-        console.log(inputText, props.Count); 
-
+        ])};
+        
         props.setCount(props.Count+1);
+        console.log(inputText, props.Count); 
         setInputText('');
     };
+
+    const handleKeyDown = (event) => {
+        if(event.key === 'Enter') handleButtonClick();
+    }
 
     return(
         <div className='input-container'>
@@ -28,6 +33,7 @@ function InputBox(props){
         className='inputBox'
         placeholder="Enter text"
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         value={inputText}
         ></input>
         <button className='input-button' onClick={handleButtonClick}>Add</button>

@@ -4,7 +4,11 @@ import ToDo from './ToDo.jsx'
 
 function App() {
 
-  return <ToDo/>
+  return(
+    <>
+    <ToDo/>
+    </>
+  ) 
 }
 
 export default App;
