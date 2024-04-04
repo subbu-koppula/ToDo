@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -37,6 +37,18 @@
   padding: 2em;
 } */
 
-.read-the-docs {
+/* .read-the-docs {
   color: #888;
+} */ 
+
+.mainBody{
+  width : 90%; 
+  margin:auto; 
+  margin-top:1em;
+}
+
+@media only screen and (max-width: 600px) {
+  .mainBody {
+      width: 100%; /* Adjust width for mobile devices */
+  }
 }
