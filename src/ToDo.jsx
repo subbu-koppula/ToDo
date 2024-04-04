@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Input from './InputBox.jsx';
 import Card from './Card.jsx';
+import FinishedCard from './FinishedCard.jsx';
 import './ToDo.css';
 
 function ToDo(props) {
@@ -15,13 +16,13 @@ function ToDo(props) {
     //     done: false,
     // }
 
-    
+
     useEffect(()=>{
         localStorage.setItem('Todos', JSON.stringify(Todos));
     },[Todos]);
 
     
-    const [Count, setCount] = useState(0);    
+       
 
     function handleDone(passedId){
         //This function takes an ID and then iterates through the Todos array. 
@@ -33,17 +34,22 @@ function ToDo(props) {
             }
             return index;
         }));
-        console.log(Todos);
+        // console.log(Todos);
     };
-
+    function handleDelete(passedID){
+        const updatedTodos = Todos.filter(todo => todo.id !== passedID);
+        setTodos(updatedTodos);
+    };
 
 
     return (
         <div className='ToDo-container'>  
-            <Input Todos={Todos} Count = {Count} setCount={setCount} setTodos = {setTodos}/>
+            <Input Todos={Todos} setTodos = {setTodos}/>
             {Todos.length ? Todos.map((index) => (                
-                !index.done ? <Card key={index.id} Count={Count} setCount={setCount} id={index.id} handleDone={handleDone} title={index.title} /> : null
+                !index.done ? <Card key={index.id} handleDelete={handleDelete} id={index.id} done={index.done} handleDone={handleDone} title={index.title} /> : null
             )) : null } 
+            <hr/>
+            <FinishedCard Todos={Todos} handleDelete={handleDelete} handleDone={handleDone}/>
         </div>
     );
 }

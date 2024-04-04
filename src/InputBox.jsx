@@ -16,10 +16,7 @@ function InputBox(props){
                 id: Date.now(),
                 done: false,
             }
-        ])};
-        
-        props.setCount(props.Count+1);
-        console.log(inputText, props.Count); 
+        ])}; 
         setInputText('');
     };
 

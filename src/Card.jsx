@@ -1,25 +1,33 @@
 import React from 'react';
 import './Card.css';
-import { useState } from 'react';
 
 function Card(props) {
     // const [hide, sethide] = useState(true);
 
     function done(){
-        props.handleDone(props.id)
-        props.setCount(props.Count-1)
+        props.handleDone(props.id);
     }
-
+    function Delete(){
+        props.handleDelete(props.id);
+    }
     return (
         // hide ?
         // (
-        <div>
+        <div className='card-container'>
             {/* <div className='checkbox'> */}
-               <button className='checkbox' onClick={done}></button>
             {/* </div> */}
             <div className='details'>
-                <p className='details-title'>{props.title}</p>
+                <input
+                    type="checkbox"
+                    id={`checkbox-${props.id}`}
+                    className='checkbox'
+                    onChange={done}
+                    checked={props.done}
+                    // style={{ display: 'none' }} // Hide the checkbox visually
+                />
+                <label htmlFor={`checkbox-${props.id}`} className='details-title'>{props.title}</label>
             </div>
+            {props.done ? <button className="card-button" onClick={Delete}>Delete</button> : null}
         </div>
    
         // ) : null 
