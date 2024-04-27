@@ -27,7 +27,11 @@ function Card(props) {
                 />
                 <label htmlFor={`checkbox-${props.id}`} className='details-title'>{props.title}</label>
             </div>
-            {props.done ? <button className="card-button" onClick={Delete}>Delete</button> : null}
+            {props.done ? 
+                <button className="card-button" onClick={Delete}>Delete</button> 
+                : 
+                <button className='card-button'>UP</button>
+            }
         </div>
    
         // ) : null 

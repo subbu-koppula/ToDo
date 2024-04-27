@@ -19,10 +19,7 @@ function ToDo(props) {
 
     useEffect(()=>{
         localStorage.setItem('Todos', JSON.stringify(Todos));
-    },[Todos]);
-
-    
-       
+    },[Todos]);   
 
     function handleDone(passedId){
         //This function takes an ID and then iterates through the Todos array. 
