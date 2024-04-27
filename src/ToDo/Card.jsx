@@ -10,6 +10,9 @@ function Card(props) {
     function Delete(){
         props.handleDelete(props.id);
     }
+    function swapUp(){
+        props.handleSwapUp(props.id);
+    }
     return (
         // hide ?
         // (
@@ -30,7 +33,7 @@ function Card(props) {
             {props.done ? 
                 <button className="card-button" onClick={Delete}>Delete</button> 
                 : 
-                <button className='card-button'>UP</button>
+                <button className='card-button' onClick={swapUp}>UP</button>
             }
         </div>
    

@@ -33,6 +33,17 @@ function ToDo(props) {
         }));
         // console.log(Todos);
     };
+    function handleSwapUp(passedId){
+        const index = Todos.findIndex(todo => todo.id === passedId);
+        if(index > 0){
+            const updatedTodos = [...Todos];
+            const temp = updatedTodos[index-1];
+            updatedTodos[index-1] = updatedTodos[index]
+            updatedTodos[index] = temp;
+            setTodos(updatedTodos);
+        }
+        
+    }
     function handleDelete(passedID){
         const updatedTodos = Todos.filter(todo => todo.id !== passedID);
         setTodos(updatedTodos);
@@ -43,7 +54,7 @@ function ToDo(props) {
         <div className='ToDo-container'>  
             <Input Todos={Todos} setTodos = {setTodos}/>
             {Todos.length ? Todos.map((index) => (                
-                !index.done ? <Card key={index.id} handleDelete={handleDelete} id={index.id} done={index.done} handleDone={handleDone} title={index.title} /> : null
+                !index.done ? <Card key={index.id} handleDelete={handleDelete} handleSwapUp = {handleSwapUp} id={index.id} done={index.done} handleDone={handleDone} title={index.title} /> : null
             )) : null } 
             <hr/>
             <FinishedCard Todos={Todos} handleDelete={handleDelete} handleDone={handleDone}/>
