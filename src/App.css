@@ -57,4 +57,18 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: white;
+  --text-color: black;
+  --secondary-color: rgb(169, 169, 169);
+
+}
+
+[data-theme="dark"] {
+  --background-color: black;
+  --text-color: white;
+  --secondary-color: rgb(90, 90, 90);
 }

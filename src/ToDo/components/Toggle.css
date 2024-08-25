@@ -1,0 +1,53 @@
+/* Container for the toggle button */
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Hide the actual checkbox */
+.toggle {
+  visibility: hidden;
+}
+
+/* Toggle label styling */
+.toggle + label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: var(--text-color);
+  position: relative;
+  border: solid;
+  border-color: var(--text-color);
+  border-radius: 1em;
+}
+
+/* Toggle track */
+.toggle + label::before {
+  content: "";
+  display: inline-block;
+  height: 1em;
+  width: 2em;
+  border-radius: 1em;
+  background-color: var(--background-color);
+  transition: background-color 250ms ease-in-out;
+  position: relative;
+}
+
+/* Toggle circle */
+.toggle + label::after {
+  content: "";
+  position: absolute;
+  height: 0.8em;
+  width: 0.8em;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  transition: transform 250ms ease-in-out;
+  top: 0.1em;
+  left: 0.1em;
+}
+
+/* When toggle is checked, move the circle */
+.toggle:checked + label::after {
+  transform: translateX(1em); /* Move circle to the right */
+}

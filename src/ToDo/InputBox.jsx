@@ -12,7 +12,7 @@ function InputBox(props){
           borderStyle: "solid",
           borderColor: "#dedede",
           borderWidth: "1px",
-          backgroundColor: props.isDarkMode? 'black' : 'white',
+          backgroundColor: 'var(--background-color)',
           transition: "box-shadow 0.3s ease",
           margin: "5px"
         },
@@ -24,14 +24,11 @@ function InputBox(props){
           border: "none",
           fontFamily: "Arial, Helvetica, sans-serif",
           outline: "none",
-          backgroundColor: props.isDarkMode? 'black' : 'white', 
-          color: props.isDarkMode? 'white' : 'black',
+          backgroundColor: 'var(--background-color)', 
+          color: 'var(--text-color)',
       
         },
-        "input-container:hover": {
-          boxShadow:
-            "var(--ds-shadow-raised, 2px 3px 3px #091e4240, 0px 0px 1px #091e424f)"
-        },
+        
         "input-button": {
           backgroundColor: "#6e6e6e",
           color: "#fff",

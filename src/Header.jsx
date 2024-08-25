@@ -1,6 +1,7 @@
 import React from "react";
 import logoSvg from "./assets/logoDark.svg";
 import logo from "./assets/logoWhite.webp";
+import {Toggle} from "./ToDo/components/Toggle.jsx"
 
 function SvgMenu(props) {
   return (
@@ -35,7 +36,7 @@ export default function Header(props) {
     marginBottom: "5px",
   };
   const styles = {
-    color: props.isDarkMode? 'white' : 'black',
+    color: 'var(--text-color)',
     fontFamily: "Arial",
     textAlign: "left",
     fontSize: "1.5rem",
@@ -57,7 +58,8 @@ export default function Header(props) {
         style={{ marginLeft: "auto", height: "25px" }}
       />
       <p style={styles}>ToDos</p>
-      <SvgMenu isDarkMode = {props.isDarkMode} onClick={handleisDarkMode}/>
+      {/* <SvgMenu isDarkMode = {props.isDarkMode} onClick={handleisDarkMode}/> */}
+      <Toggle isChecked={props.isDarkMode} handleChange={() => props.setisDarkMode(!props.isDarkMode)}/>
     </div>
   );
 }

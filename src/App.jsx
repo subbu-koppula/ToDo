@@ -14,11 +14,11 @@ function App() {
   }, [isDarkMode]);
 
   const styles = {
-    backgroundColor: isDarkMode ? "black" : "white",
+    backgroundColor: 'var(--background-color)',
     height: "100vh",
   };
   return (
-    <div style={styles}>
+    <div style={styles} data-theme={isDarkMode? 'dark' : 'light'}>
       <div style={{ marginLeft: 8, marginRight: 8 }}>
         <Header setisDarkMode={setisDarkMode} isDarkMode={isDarkMode} />
         <div className="mainBody">

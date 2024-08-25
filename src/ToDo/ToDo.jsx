@@ -25,7 +25,7 @@ function ToDo(props) {
           borderColor: "rgb(67, 69, 69)",
           borderWidth: "1px",
           minHeight: "200px",
-          color: props.isDarkMode ? 'white' : 'black',
+          color: 'var(--text-color)',
       }
       
     function handleDone(passedId){
