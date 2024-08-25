@@ -52,3 +52,7 @@
       width: 100%; /* Adjust width for mobile devices */
   }
 }
+
+body{
+  margin: 0;
+}

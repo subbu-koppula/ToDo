@@ -1,7 +1,51 @@
-import './InputBox.css';
+// import './InputBox.css';
 import React, { useState } from 'react';
 
 function InputBox(props){
+    const styles = {
+        "input-container": {
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderRadius: "5px",
+          borderStyle: "solid",
+          borderColor: "#dedede",
+          borderWidth: "1px",
+          backgroundColor: props.isDarkMode? 'black' : 'white',
+          transition: "box-shadow 0.3s ease",
+          margin: "5px"
+        },
+        "inputBox": {
+          width: "100%",
+          height: "30px",
+          padding: "5px",
+          borderRadius: "10px",
+          border: "none",
+          fontFamily: "Arial, Helvetica, sans-serif",
+          outline: "none",
+          backgroundColor: props.isDarkMode? 'black' : 'white', 
+          color: props.isDarkMode? 'white' : 'black',
+      
+        },
+        "input-container:hover": {
+          boxShadow:
+            "var(--ds-shadow-raised, 2px 3px 3px #091e4240, 0px 0px 1px #091e424f)"
+        },
+        "input-button": {
+          backgroundColor: "#6e6e6e",
+          color: "#fff",
+          border: "none",
+          borderRadius: "5px",
+          height: "40px",
+          width: "63.8px",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+          cursor: "pointer",
+          transition: "background-color 0.3s ease"
+        },
+        "input-button:hover": { backgroundColor: "#4e4e4e" }
+      }
     const [inputText, setInputText] = useState('');
     const handleInputChange = (event) => {
         setInputText(event.target.value); 
@@ -25,15 +69,16 @@ function InputBox(props){
     }
 
     return(
-        <div className='input-container'>
+        <div style={styles['input-container']}>
         <input
-        className='inputBox'
+        style={styles['inputBox']}
         placeholder="Enter text"
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         value={inputText}
+        
         ></input>
-        <button className='input-button' onClick={handleButtonClick}>Add</button>
+        <button style={styles['input-button']} onClick={handleButtonClick}>Add</button>
         </div>
     );
 }

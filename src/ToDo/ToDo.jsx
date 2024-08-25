@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import Input from './InputBox.jsx';
 import Card from './Card.jsx';
 import FinishedCard from './FinishedCard.jsx';
-import './ToDo.css';
 
 function ToDo(props) {
     const [Todos, setTodos] = useState(() => {
@@ -16,11 +15,19 @@ function ToDo(props) {
     //     done: false,
     // }
 
-
     useEffect(()=>{
         localStorage.setItem('Todos', JSON.stringify(Todos));
     },[Todos]);   
 
+    const converted = {
+          borderStyle: "none",
+          borderRadius: "10px",
+          borderColor: "rgb(67, 69, 69)",
+          borderWidth: "1px",
+          minHeight: "200px",
+          color: props.isDarkMode ? 'white' : 'black',
+      }
+      
     function handleDone(passedId){
         //This function takes an ID and then iterates through the Todos array. 
         //If it finds the object containing the id, then it toggles the state of "done" inside it. 
@@ -51,13 +58,13 @@ function ToDo(props) {
 
 
     return (
-        <div className='ToDo-container'>  
-            <Input Todos={Todos} setTodos = {setTodos}/>
+        <div style={converted}>  
+            <Input Todos={Todos} isDarkMode={props.isDarkMode} setTodos = {setTodos}/>
             {Todos.length ? Todos.map((index) => (                
-                !index.done ? <Card key={index.id} handleDelete={handleDelete} handleSwapUp = {handleSwapUp} id={index.id} done={index.done} handleDone={handleDone} title={index.title} /> : null
+                !index.done ? <Card key={index.id} isDarkMode={props.isDarkMode} handleDelete={handleDelete} handleSwapUp = {handleSwapUp} id={index.id} done={index.done} handleDone={handleDone} title={index.title} /> : null
             )) : null } 
             <hr/>
-            <FinishedCard Todos={Todos} handleDelete={handleDelete} handleDone={handleDone}/>
+            <FinishedCard Todos={Todos} isDarkMode={props.isDarkMode} handleDelete={handleDelete} handleDone={handleDone}/>
         </div>
     );
 }
