@@ -4,22 +4,28 @@ import Header from "./Header.jsx";
 import "./App.css";
 
 function App() {
-  const [isDarkMode, setisDarkMode] = useState(false);
-  const styles = {
-    backgroundColor: isDarkMode ? 'black' : 'white',
-    height: '100vh'
-  }
-  return (
+  const [isDarkMode, setisDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem("isDarkMode");
+    return savedTheme ? JSON.parse(savedTheme) : false;
+  });
 
+  useEffect(() => {
+    localStorage.setItem("isDarkMode", JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
+
+  const styles = {
+    backgroundColor: isDarkMode ? "black" : "white",
+    height: "100vh",
+  };
+  return (
     <div style={styles}>
-      <div style={{marginLeft: 8, marginRight: 8}}>
-        <Header setisDarkMode = {setisDarkMode} isDarkMode = {isDarkMode} />
+      <div style={{ marginLeft: 8, marginRight: 8 }}>
+        <Header setisDarkMode={setisDarkMode} isDarkMode={isDarkMode} />
         <div className="mainBody">
-          <ToDo isDarkMode = {isDarkMode}/>
+          <ToDo isDarkMode={isDarkMode} />
         </div>
       </div>
     </div>
-
   );
 }
 
