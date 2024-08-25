@@ -12,7 +12,7 @@ function App() {
   return (
 
     <div style={styles}>
-      <div style={{margin: 8}}>
+      <div style={{marginLeft: 8, marginRight: 8}}>
         <Header setisDarkMode = {setisDarkMode} isDarkMode = {isDarkMode} />
         <div className="mainBody">
           <ToDo isDarkMode = {isDarkMode}/>
