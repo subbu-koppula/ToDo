@@ -1,7 +1,7 @@
 import React from "react";
 import logoSvg from "./assets/logoDark.svg";
 import logo from "./assets/logoWhite.webp";
-import {Toggle} from "./ToDo/components/Toggle.jsx"
+import {Toggle} from "./components/Toggle.jsx"
 
 function SvgMenu(props) {
   return (
