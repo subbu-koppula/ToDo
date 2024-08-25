@@ -2,30 +2,6 @@ import React from "react";
 import logoSvg from "./assets/logoDark.svg";
 import logo from "./assets/logoWhite.webp";
 
-// function SvgLogo(props) {
-//     return (
-//       <svg
-//         xmlns="http://www.w3.org/2000/svg"
-//         width={24}
-//         height={24}
-//         viewBox="0 0 24 24"
-//         fill="none"
-//         stroke="currentColor"
-//         strokeWidth={2}
-//         strokeLinecap="round"
-//         strokeLinejoin="round"
-//         className="h-6 w-6"
-//         data-id={4}
-        
-//       >
-//         <g fill= {props.isDarkMode?'white' : 'black'}>\
-//             <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-//             <path d="M22 4L12 14.01 9 11.01" />
-//         </g>
-//       </svg>
-//     )
-//   }
-
 function SvgMenu(props) {
   return (
     <svg
@@ -80,7 +56,6 @@ export default function Header(props) {
         alt="Logo"
         style={{ marginLeft: "auto", height: "25px" }}
       />
-      {/* <SvgLogo isDarkMode = {props.isDarkMode} /> */}
       <p style={styles}>ToDos</p>
       <SvgMenu isDarkMode = {props.isDarkMode} onClick={handleisDarkMode}/>
     </div>
